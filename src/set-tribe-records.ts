@@ -11,7 +11,10 @@ interface TribeRecordsInputs {
   values?: string[];
 }
 
-export const setRecords = async (name: string, records: TribeRecordsInputs) => {
+export const setTribeRecords = async (
+  name: string,
+  records: TribeRecordsInputs,
+) => {
   let node = ethers.utils.namehash(name);
   const calldata = buildMulticallData(node, records);
   const res = await resolver.multicall(calldata);

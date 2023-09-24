@@ -1,12 +1,10 @@
 import "dotenv/config";
 import { ethers } from "ethers";
 import "./src/check-resolver";
-import { setRecords } from "./src/set-tribe-records";
+import { setTribeRecords } from "./src/set-tribe-records";
 import { getResolver } from "./src/check-resolver";
 import { setResolver } from "./src/set-public-resolver";
 import { resolver } from "./src/utils/contracts";
-
-const provider = new ethers.providers.JsonRpcProvider(process.env.RPC_URL);
 
 const main = async () => {
   const tribeName = "tribes.eth";
@@ -24,7 +22,7 @@ const main = async () => {
 
   // 3. Setting tribe records
 
-  const res = await setRecords(tribeName, {
+  const res = await setTribeRecords(tribeName, {
     name: "Ice cream gang",
     avatar:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwrQN5DxipBXcGFoj8cZeYc-4oVf7c_U7w99w4oSAA3g&s",
